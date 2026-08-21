@@ -12,11 +12,11 @@ const textLink =
 
 export function SiteFooter() {
   return (
-    <footer className="grain relative overflow-hidden border-t border-white/10 bg-[#0b0705] px-5 pb-28 pt-20 sm:px-10 sm:pb-24 lg:px-20">
+    <footer className="grain relative overflow-hidden border-t border-white/10 bg-ink px-5 pb-28 pt-20 sm:px-10 sm:pb-24 lg:px-20">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
-            <Logo className="h-8 w-8 text-[#c6a15b]" />
+            <Logo className="h-8 w-8 text-brass" />
             <p className="mt-6 font-arsenica text-2xl leading-snug text-white sm:text-3xl">{FIRM.name}</p>
             <p className="mt-4 max-w-sm font-inter text-[13px] leading-relaxed text-white/50">
               Estate planning, wills, trusts, probate avoidance, real estate closings and personal injury for
@@ -31,7 +31,7 @@ export function SiteFooter() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="font-inter text-sm text-white/70 transition-colors duration-300 hover:text-[#c6a15b]"
+                    className="font-inter text-sm text-white/70 transition-colors duration-300 hover:text-brass"
                   >
                     {item.label}
                   </a>
@@ -40,7 +40,7 @@ export function SiteFooter() {
               <li>
                 <a
                   href="#book"
-                  className="font-inter text-sm text-white/70 transition-colors duration-300 hover:text-[#c6a15b]"
+                  className="font-inter text-sm text-white/70 transition-colors duration-300 hover:text-brass"
                 >
                   Book a session
                 </a>
@@ -55,7 +55,7 @@ export function SiteFooter() {
                 href={MAPS}
                 target="_blank"
                 rel="noreferrer"
-                className="block font-inter text-sm leading-relaxed text-white/70 transition-colors duration-300 hover:text-[#c6a15b]"
+                className="block font-inter text-sm leading-relaxed text-white/70 transition-colors duration-300 hover:text-brass"
               >
                 {FIRM.street}
                 <br />
@@ -63,7 +63,7 @@ export function SiteFooter() {
               </a>
               <a
                 href={FIRM.phoneHref}
-                className="block font-inter text-sm text-white/70 transition-colors duration-300 hover:text-[#c6a15b]"
+                className="block font-inter text-sm text-white/70 transition-colors duration-300 hover:text-brass"
               >
                 {FIRM.phone}
               </a>

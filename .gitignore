@@ -6,3 +6,6 @@ dist-ssr
 .env
 .env.*
 !.env.example
+
+# scraper output — site copies and client images stay out of git
+scrape

@@ -1,3 +1,5 @@
+import { PALETTE } from '../lib/theme'
+
 type Props = {
   color?: string
   className?: string
@@ -11,7 +13,7 @@ type Props = {
  * here is expensive enough on software rasterisers and low-end phones to stall
  * the compositor, and the soft stops get the same look for nothing.
  */
-export function FogTransition({ color = '#410c01', className = '', style }: Props) {
+export function FogTransition({ color = PALETTE.navy, className = '', style }: Props) {
   const billow = (w: number, h: number, x: number, peak: string, mid: string) =>
     `radial-gradient(${w}% ${h}% at ${x}% 104%, ${color}${peak} 0%, ${color}${mid} 30%, ${color}3d 58%, ${color}14 74%, ${color}00 86%)`
 

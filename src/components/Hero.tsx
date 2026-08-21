@@ -4,13 +4,13 @@ import { FIRM } from '../lib/content'
 
 export function Hero() {
   return (
-    <section id="top" className="grain relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-[#0b0705]">
+    <section id="top" className="grain relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-ink">
       <Rings3D className="absolute inset-0 h-full w-full" />
 
       {/* scrims — keep the type readable wherever the render lands */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_75%_at_50%_58%,rgba(11,7,5,0)_0%,rgba(11,7,5,0.42)_42%,rgba(11,7,5,0.86)_100%)]" />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#0b0705]/85 to-transparent" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#0b0705] to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_75%_at_50%_58%,rgba(5,9,16,0)_0%,rgba(5,9,16,0.42)_42%,rgba(5,9,16,0.86)_100%)]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-ink/85 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-ink to-transparent" />
 
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-5 pb-14 text-center text-white sm:pb-16">
         <p

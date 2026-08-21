@@ -35,13 +35,13 @@ function Stat({ stat, index, run }: { stat: (typeof PROBATE_STATS)[number]; inde
       style={{ animationDelay: `${0.12 + index * 0.12}s` }}
     >
       <div className="absolute left-0 top-0 h-px w-full bg-white/12" />
-      <div className="absolute left-0 top-0 h-px w-10 bg-[#c6a15b]" />
+      <div className="absolute left-0 top-0 h-px w-10 bg-brass" />
       <p className="font-arsenica text-6xl leading-none tracking-tight text-white sm:text-7xl lg:text-[5.5rem]">
         {stat.prefix}
         {value}
         {stat.suffix}
       </p>
-      <p className="mt-4 font-inter text-[10px] uppercase tracking-[0.28em] text-[#c6a15b] sm:text-xs">
+      <p className="mt-4 font-inter text-[10px] uppercase tracking-[0.28em] text-brass sm:text-xs">
         {stat.label}
       </p>
       <p className="mt-4 max-w-xs font-inter text-[11px] leading-relaxed text-white/55 sm:text-sm">{stat.note}</p>
@@ -74,7 +74,7 @@ export function Probate() {
     <section
       id="probate"
       ref={ref}
-      className="grain relative overflow-hidden bg-[#0b0705] px-5 py-24 sm:px-10 sm:py-32 lg:px-20 lg:py-40"
+      className="grain relative overflow-hidden bg-ink px-5 py-24 sm:px-10 sm:py-32 lg:px-20 lg:py-40"
     >
       <div className="mx-auto max-w-6xl">
         <div ref={sentinel} className="max-w-2xl">
@@ -107,7 +107,7 @@ export function Probate() {
             href="#plans"
             className="group inline-flex items-center gap-4 font-inter text-[10px] uppercase tracking-[0.25em] text-white/80 transition-colors duration-300 hover:text-white sm:text-xs"
           >
-            <span className="h-px w-10 bg-[#c6a15b] transition-all duration-300 group-hover:w-16" />
+            <span className="h-px w-10 bg-brass transition-all duration-300 group-hover:w-16" />
             See how it is avoided
           </a>
         </div>

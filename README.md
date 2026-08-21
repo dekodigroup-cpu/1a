@@ -46,7 +46,18 @@ glare that tracks the pointer, and scroll-driven lean on the process plate
 | Every word on the page | `src/lib/content.ts` |
 | Photographs | `public/photos/` — see the shot list in [`public/photos/README.md`](public/photos/README.md) |
 | Photo slots and crops | `src/lib/photos.ts` |
-| Colour, type, animation primitives | `src/index.css` |
+| Colour tokens | `tailwind.config.js` (classes) and `src/lib/theme.ts` (values) |
+| Type, animation primitives | `src/index.css` |
+
+### Colour
+
+The palette lives in two places that must agree: `tailwind.config.js` for the
+utility classes, and `src/lib/theme.ts` for the handful of spots that need a
+value rather than a class (the mist transitions, the canvas fallback). `navy`
+is the brand blue — change that one hex in both files and every section, scrim
+and gradient follows. The shader carries its own copy of `NAVY` and `INK` as
+`vec3` literals at the top of `src/components/webgl/Rings3D.tsx`; the comment
+next to each gives the hex it came from.
 
 ### Photographs
 
@@ -62,6 +73,30 @@ Set `VITE_FORM_ENDPOINT` (see `.env.example`) to any endpoint that accepts a
 `multipart/form-data` POST — Formspree, Netlify Forms, Basin, your own handler.
 With it unset the form tells the visitor to phone the office rather than
 pretending a submission went through.
+
+## Reading the live site
+
+`npm run scrape -- <url>` drives a real browser over a site and writes
+everything needed to rebuild or review it into `scrape/` (gitignored):
+
+- `report.md` — pages, palette and fonts at a glance
+- `palette.json` / `palette.html` — every colour the site actually paints,
+  ranked by how much of the page it covers, as data and as swatches
+- `pages/<slug>.md` — title, meta, headings and body copy per page
+- `images/` — every image the site loads, at full resolution
+- `shots/` — full-page desktop and mobile screenshots
+
+```bash
+npx playwright install chromium     # once
+npm run scrape -- https://rosslawoffice.net
+```
+
+Set `PLAYWRIGHT_CHROMIUM_PATH` to reuse an existing Chromium, and
+`SCRAPE_MAX_PAGES` to change the 25-page crawl cap.
+
+Note this needs outbound network access to the target host. In a sandboxed
+Claude Code environment that is governed by the environment's network policy,
+not by the tooling here.
 
 ## Copy
 

@@ -5,6 +5,7 @@ import { Probate } from './components/Probate'
 import { Showcase } from './components/Showcase'
 import { Plans } from './components/Plans'
 import { Process } from './components/Process'
+import { PALETTE } from './lib/theme'
 import { FogTransition } from './components/FogTransition'
 import { Firm } from './components/Firm'
 import { QAndA } from './components/QAndA'
@@ -17,7 +18,7 @@ export default function App() {
     <>
       <a
         href="#book"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-[2px] focus:bg-[#c6a15b] focus:px-4 focus:py-2 focus:font-inter focus:text-xs focus:uppercase focus:tracking-[0.2em] focus:text-[#1a0b04]"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-[2px] focus:bg-brass focus:px-4 focus:py-2 focus:font-inter focus:text-xs focus:uppercase focus:tracking-[0.2em] focus:text-onbrass"
       >
         Skip to booking
       </a>
@@ -40,7 +41,7 @@ export default function App() {
           <Process />
           {/* the mist dissolves the oxblood back down into ink */}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[34vh]">
-            <FogTransition color="#0b0705" className="h-full" />
+            <FogTransition color={PALETTE.ink} className="h-full" />
           </div>
         </div>
 
@@ -48,7 +49,7 @@ export default function App() {
           <Firm />
           {/* and back up into oxblood for the interview */}
           <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[30vh]">
-            <FogTransition color="#410c01" className="h-full" />
+            <FogTransition color={PALETTE.navy} className="h-full" />
           </div>
         </div>
 

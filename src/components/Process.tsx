@@ -15,7 +15,7 @@ export function Process() {
     <section
       id="process"
       ref={ref}
-      className="grain relative overflow-hidden bg-[#410c01] px-5 pb-[40vh] pt-24 sm:px-10 sm:pt-32 lg:px-20 lg:pt-40"
+      className="grain relative overflow-hidden bg-navy px-5 pb-[40vh] pt-24 sm:px-10 sm:pt-32 lg:px-20 lg:pt-40"
     >
       <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] lg:gap-20">
         {/* 3D photo plate — leans as it travels through the viewport */}
@@ -29,7 +29,7 @@ export function Process() {
               label="At the table"
               className="aspect-[4/5] w-full object-cover"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#2a0805]/70 via-transparent to-transparent" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-deep/70 via-transparent to-transparent" />
             <div className="pointer-events-none absolute inset-0 border border-white/10" />
           </div>
           <p className="reveal mt-5 font-inter text-[10px] uppercase tracking-[0.28em] text-white/45">
@@ -54,8 +54,8 @@ export function Process() {
                 className="reveal relative border-t border-white/15 pt-7"
                 style={{ animationDelay: `${0.1 + i * 0.12}s` }}
               >
-                <span className="absolute -top-px left-0 h-px w-10 bg-[#c6a15b]" aria-hidden="true" />
-                <p className="font-inter text-[10px] uppercase tracking-[0.3em] text-[#c6a15b]">{item.step}</p>
+                <span className="absolute -top-px left-0 h-px w-10 bg-brass" aria-hidden="true" />
+                <p className="font-inter text-[10px] uppercase tracking-[0.3em] text-brass">{item.step}</p>
                 <h3 className="mt-4 font-arsenica text-2xl tracking-wide text-white sm:text-3xl">
                   {item.title}
                 </h3>

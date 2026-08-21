@@ -1,5 +1,6 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useParallax } from '../hooks/useParallax'
+import { PALETTE } from '../lib/theme'
 import { FogTransition } from './FogTransition'
 import { QA_LEFT, QA_RIGHT, type QA } from '../lib/content'
 
@@ -25,7 +26,7 @@ export function QAndA() {
     <section
       id="answers"
       ref={ref}
-      className="grain relative overflow-hidden bg-[#410c01] px-4 pt-20 sm:px-10 sm:pt-24 lg:px-28 lg:pt-32"
+      className="grain relative overflow-hidden bg-navy px-4 pt-20 sm:px-10 sm:pt-24 lg:px-28 lg:pt-32"
       style={{ paddingBottom: '50vh' }}
     >
       <div className="relative z-20 mx-auto max-w-6xl">
@@ -59,7 +60,7 @@ export function QAndA() {
         className="pointer-events-none absolute bottom-0 left-0 z-10 h-[45vh] w-full will-change-transform"
         style={{ transform: `translateY(${(18 - offset).toFixed(2)}%)` }}
       >
-        <FogTransition color="#2a0805" className="h-full" />
+        <FogTransition color={PALETTE.navyDeep} className="h-full" />
       </div>
 
     </section>

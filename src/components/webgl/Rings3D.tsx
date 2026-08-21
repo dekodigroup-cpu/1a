@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { PALETTE } from '../../lib/theme'
 
 /**
  * Hand-written WebGL. No three.js, no libraries.
@@ -25,9 +26,9 @@ uniform float uTime;
 uniform vec2  uPointer;
 uniform float uSteps;
 
-const vec3 BRASS   = vec3(0.82, 0.63, 0.32);
-const vec3 OXBLOOD = vec3(0.255, 0.047, 0.004);
-const vec3 INK     = vec3(0.043, 0.027, 0.020);
+const vec3 BRASS = vec3(0.82, 0.63, 0.32);
+const vec3 NAVY  = vec3(0.043, 0.145, 0.271);   // #0B2545
+const vec3 INK   = vec3(0.020, 0.035, 0.063);   // #050910
 
 mat2 rot(float a) {
   float c = cos(a), s = sin(a);
@@ -116,9 +117,9 @@ float ambientOcc(vec3 p, vec3 n) {
 
 vec3 skyline(vec3 rd) {
   float h = clamp(rd.y * 0.5 + 0.5, 0.0, 1.0);
-  vec3 col = mix(INK * 0.11, OXBLOOD * 0.075, pow(h, 1.6));
+  vec3 col = mix(INK * 0.20, NAVY * 0.30, pow(h, 1.25));
   float glow = pow(max(0.0, dot(rd, normalize(vec3(0.32, 0.24, -1.0)))), 5.0);
-  return col + OXBLOOD * glow * 0.30 + BRASS * pow(glow, 2.0) * 0.07;
+  return col + NAVY * glow * 0.85 + BRASS * pow(glow, 2.0) * 0.09;
 }
 
 vec3 shade(vec3 p, vec3 n, vec3 rd, float mat) {
@@ -128,11 +129,11 @@ vec3 shade(vec3 p, vec3 n, vec3 rd, float mat) {
   vec3 albedo;
   float rough, metal;
   if (mat < 1.5) {
-    albedo = vec3(0.030, 0.017, 0.013);
+    albedo = vec3(0.013, 0.024, 0.040);   // floor — cool, near-black
     rough  = 0.32;
     metal  = 0.25;
   } else if (mat < 2.5) {
-    albedo = vec3(0.085, 0.045, 0.032);
+    albedo = vec3(0.034, 0.058, 0.094);   // core — polished blue stone
     rough  = 0.24;
     metal  = 0.55;
   } else {
@@ -146,8 +147,9 @@ vec3 shade(vec3 p, vec3 n, vec3 rd, float mat) {
 
   float ndl = max(dot(n, key), 0.0);
   vec3 lit = albedo * ndl * vec3(1.0, 0.87, 0.68) * 1.75 * sh;
-  lit += albedo * max(dot(n, fill), 0.0) * OXBLOOD * 3.2;
-  lit += albedo * OXBLOOD * 1.1 * occ;
+  float coolFill = mix(4.4, 1.3, metal);   // blue fill on metal reads olive
+  lit += albedo * max(dot(n, fill), 0.0) * NAVY * coolFill;
+  lit += albedo * NAVY * mix(1.5, 0.5, metal) * occ;
 
   vec3 h = normalize(key - rd);
   float spec = pow(max(dot(n, h), 0.0), mix(24.0, 220.0, 1.0 - rough));
@@ -201,8 +203,8 @@ void main() {
     col = mix(col, skyline(rd), 1.0 - exp(-0.0035 * hit.x * hit.x));
   }
 
-  // grade: lift into oxblood, gentle filmic curve, vignette
-  col = mix(col, OXBLOOD * 0.22, 0.10);
+  // grade: lift into the brand navy, gentle filmic curve, vignette
+  col = mix(col, NAVY * 0.42, 0.14);
   col *= 0.90;
   col = (col * (2.51 * col + 0.03)) / (col * (2.43 * col + 0.59) + 0.14);
   float vig = 1.0 - 1.10 * dot(uv * vec2(0.74, 1.00), uv * vec2(0.74, 1.00));
@@ -383,7 +385,7 @@ export function Rings3D({ className = '' }: { className?: string }) {
         aria-hidden="true"
         style={{
           background:
-            'radial-gradient(120% 90% at 62% 34%, rgba(198,161,91,0.22) 0%, rgba(65,12,1,0.55) 38%, #0b0705 78%)',
+            `radial-gradient(120% 90% at 62% 34%, rgba(198,161,91,0.20) 0%, rgba(11,37,69,0.72) 38%, ${PALETTE.ink} 78%)`,
         }}
       />
     )

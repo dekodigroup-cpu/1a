@@ -8,7 +8,7 @@ const ENDPOINT = import.meta.env.VITE_FORM_ENDPOINT as string | undefined
 type Status = 'idle' | 'sending' | 'sent' | 'error' | 'unconfigured'
 
 const fieldClass =
-  'w-full rounded-[2px] border border-white/15 bg-white/[0.03] px-4 py-3 font-inter text-sm text-white placeholder-white/30 transition-colors duration-300 focus:border-[#c6a15b] focus:outline-none'
+  'w-full rounded-[2px] border border-white/15 bg-white/[0.03] px-4 py-3 font-inter text-sm text-white placeholder-white/30 transition-colors duration-300 focus:border-brass focus:outline-none'
 const labelClass = 'block font-inter text-[9px] uppercase tracking-[0.28em] text-white/50'
 
 export function Booking() {
@@ -41,7 +41,7 @@ export function Booking() {
     <section
       id="book"
       ref={ref}
-      className="grain relative overflow-hidden bg-[#0b0705] px-5 py-24 sm:px-10 sm:py-32 lg:px-20 lg:py-40"
+      className="grain relative overflow-hidden bg-ink px-5 py-24 sm:px-10 sm:py-32 lg:px-20 lg:py-40"
     >
       <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1fr)] lg:gap-24">
         <div>
@@ -65,13 +65,13 @@ export function Booking() {
 
           <div className="reveal mt-12 space-y-6" style={{ animationDelay: '0.2s' }}>
             <a href={FIRM.phoneHref} className="group flex items-center gap-4">
-              <Phone className="h-4 w-4 shrink-0 text-[#c6a15b]" />
-              <span className="font-arsenica text-2xl text-white transition-colors duration-300 group-hover:text-[#c6a15b] sm:text-3xl">
+              <Phone className="h-4 w-4 shrink-0 text-brass" />
+              <span className="font-arsenica text-2xl text-white transition-colors duration-300 group-hover:text-brass sm:text-3xl">
                 {FIRM.phone}
               </span>
             </a>
             <p className="flex items-start gap-4 font-inter text-sm text-white/60">
-              <MapPin className="mt-1 h-4 w-4 shrink-0 text-[#c6a15b]" />
+              <MapPin className="mt-1 h-4 w-4 shrink-0 text-brass" />
               <span>
                 {FIRM.street}, {FIRM.city}, {FIRM.state} {FIRM.zip}
                 <br />
@@ -115,20 +115,20 @@ export function Booking() {
                   Choose one
                 </option>
                 {PLANS.map((plan) => (
-                  <option key={plan.name} value={plan.name} className="bg-[#150806]">
+                  <option key={plan.name} value={plan.name} className="bg-slate">
                     {plan.name}
                   </option>
                 ))}
-                <option value="Not sure yet" className="bg-[#150806]">
+                <option value="Not sure yet" className="bg-slate">
                   Not sure yet
                 </option>
-                <option value="Real estate closing" className="bg-[#150806]">
+                <option value="Real estate closing" className="bg-slate">
                   Real estate closing
                 </option>
-                <option value="Personal injury" className="bg-[#150806]">
+                <option value="Personal injury" className="bg-slate">
                   Personal injury
                 </option>
-                <option value="Probate already underway" className="bg-[#150806]">
+                <option value="Probate already underway" className="bg-slate">
                   Probate already underway
                 </option>
               </select>
@@ -144,7 +144,7 @@ export function Booking() {
           <button
             type="submit"
             disabled={status === 'sending'}
-            className="group mt-8 inline-flex w-full items-center justify-center gap-3 rounded-[2px] bg-[#c6a15b] px-8 py-4 font-inter text-[10px] uppercase tracking-[0.25em] text-[#1a0b04] transition-all duration-300 hover:bg-[#d8b571] disabled:cursor-not-allowed disabled:opacity-60 sm:text-xs"
+            className="group mt-8 inline-flex w-full items-center justify-center gap-3 rounded-[2px] bg-brass px-8 py-4 font-inter text-[10px] uppercase tracking-[0.25em] text-onbrass transition-all duration-300 hover:bg-brass-lit disabled:cursor-not-allowed disabled:opacity-60 sm:text-xs"
           >
             {status === 'sending' ? 'Sending…' : 'Request my session'}
             <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -152,17 +152,17 @@ export function Booking() {
 
           <p aria-live="polite" className="mt-5 min-h-[2.5rem] font-inter text-[11px] leading-relaxed">
             {status === 'sent' && (
-              <span className="text-[#c6a15b]">
+              <span className="text-brass">
                 Thank you — we have your request and will be in touch within one business day.
               </span>
             )}
             {status === 'error' && (
-              <span className="text-[#e0836a]">
+              <span className="text-ember">
                 That did not go through. Please call {FIRM.phone} and we will get you booked.
               </span>
             )}
             {status === 'unconfigured' && (
-              <span className="text-[#e0836a]">
+              <span className="text-ember">
                 Form delivery is not connected yet — please call {FIRM.phone}. (Set{' '}
                 <code className="text-white/70">VITE_FORM_ENDPOINT</code> to enable submissions.)
               </span>

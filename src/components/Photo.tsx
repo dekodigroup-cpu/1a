@@ -23,12 +23,12 @@ export function Photo({ photo, className = '', label, eager = false, plain = fal
   if (broken && plain) {
     return (
       <div
-        className={`grain overflow-hidden bg-[#140805] ${className}`}
+        className={`grain overflow-hidden bg-plate ${className}`}
         role="img"
         aria-label={photo.alt}
         style={{
           backgroundImage:
-            'radial-gradient(120% 90% at 30% 20%, rgba(198,161,91,0.10) 0%, rgba(20,8,5,0) 60%), radial-gradient(100% 80% at 80% 90%, rgba(65,12,1,0.55) 0%, rgba(20,8,5,0) 65%)',
+            'radial-gradient(120% 90% at 30% 20%, rgba(198,161,91,0.10) 0%, rgba(10,21,38,0) 60%), radial-gradient(100% 80% at 80% 90%, rgba(11,37,69,0.55) 0%, rgba(10,21,38,0) 65%)',
         }}
       />
     )
@@ -37,13 +37,13 @@ export function Photo({ photo, className = '', label, eager = false, plain = fal
   if (broken) {
     return (
       <div
-        className={`grain flex items-center justify-center overflow-hidden bg-[#170a06] ${className}`}
+        className={`grain flex items-center justify-center overflow-hidden bg-plate ${className}`}
         role="img"
         aria-label={photo.alt}
       >
         <div className="px-6 text-center">
-          <div className="mx-auto mb-4 h-px w-10 bg-[#c6a15b]/50" />
-          <p className="font-inter text-[9px] uppercase tracking-[0.3em] text-[#c6a15b]/70">
+          <div className="mx-auto mb-4 h-px w-10 bg-brass/50" />
+          <p className="font-inter text-[9px] uppercase tracking-[0.3em] text-brass/70">
             {label ?? 'Photograph'}
           </p>
           <p className="mt-2 font-arsenica text-xs leading-relaxed text-white/35 sm:text-sm">{photo.alt}</p>

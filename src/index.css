@@ -9,11 +9,11 @@
   --font-serif: 'Arsenica Trial Light', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
 
-  /* Ross Law palette — deep oxblood, bone, brass */
-  --ink: #0b0705;
-  --oxblood: #410c01;
-  --oxblood-deep: #2a0805;
-  --bone: #f2ece3;
+  /* Ross Law palette — deep navy, bone, brass. Mirrors tailwind.config.js. */
+  --ink: #050910;
+  --navy: #0b2545;
+  --navy-deep: #061529;
+  --bone: #eaf0f7;
   --brass: #c6a15b;
 }
 
@@ -165,7 +165,7 @@ body {
 /* Engraved / letterpress text used for the section numerals */
 .engraved {
   color: transparent;
-  background: linear-gradient(180deg, rgba(242, 236, 227, 0.16), rgba(242, 236, 227, 0.02));
+  background: linear-gradient(180deg, rgba(234, 240, 247, 0.16), rgba(234, 240, 247, 0.02));
   -webkit-background-clip: text;
   background-clip: text;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.06), 0 -1px 0 rgba(0, 0, 0, 0.5);
@@ -176,10 +176,10 @@ body {
   height: 1px;
   background: linear-gradient(
     90deg,
-    rgba(242, 236, 227, 0) 0%,
-    rgba(242, 236, 227, 0.28) 18%,
-    rgba(242, 236, 227, 0.28) 82%,
-    rgba(242, 236, 227, 0) 100%
+    rgba(234, 240, 247, 0) 0%,
+    rgba(234, 240, 247, 0.28) 18%,
+    rgba(234, 240, 247, 0.28) 82%,
+    rgba(234, 240, 247, 0) 100%
   );
 }
 

@@ -27,11 +27,11 @@ function AttorneyCard({ person, index }: { person: (typeof TEAM)[number]; index:
             label={person.name}
             className="aspect-[4/5] w-full object-cover grayscale-[0.35] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.03]"
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0b0705] via-[#0b0705]/10 to-transparent" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent" />
         </div>
         <div className="relative pt-6" style={{ transform: 'translateZ(24px)' }}>
           <h3 className="font-arsenica text-2xl tracking-wide text-white sm:text-3xl">{person.name}</h3>
-          <p className="mt-2 font-inter text-[9px] uppercase tracking-[0.26em] text-[#c6a15b]">{person.role}</p>
+          <p className="mt-2 font-inter text-[9px] uppercase tracking-[0.26em] text-brass">{person.role}</p>
           <p className="mt-4 max-w-sm font-inter text-[13px] leading-relaxed text-white/60">{person.bio}</p>
         </div>
       </div>
@@ -46,7 +46,7 @@ export function Firm() {
     <section
       id="firm"
       ref={ref}
-      className="grain relative overflow-hidden bg-[#0b0705] px-5 pb-[36vh] pt-24 sm:px-10 sm:pt-32 lg:px-20 lg:pt-40"
+      className="grain relative overflow-hidden bg-ink px-5 pb-[36vh] pt-24 sm:px-10 sm:pt-32 lg:px-20 lg:pt-40"
     >
       <div className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
@@ -82,12 +82,12 @@ export function Firm() {
               label="384 Court Street"
               className="aspect-[3/2] w-full object-cover"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0b0705]/60 to-transparent" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent" />
           </div>
 
           <dl className="reveal space-y-8 self-center" style={{ animationDelay: '0.12s' }}>
             <div className="flex gap-4">
-              <MapPin className="mt-1 h-4 w-4 shrink-0 text-[#c6a15b]" />
+              <MapPin className="mt-1 h-4 w-4 shrink-0 text-brass" />
               <div>
                 <dt className="font-inter text-[9px] uppercase tracking-[0.28em] text-white/45">Office</dt>
                 <dd className="mt-2 font-arsenica text-xl text-white sm:text-2xl">
@@ -98,7 +98,7 @@ export function Firm() {
               </div>
             </div>
             <div className="flex gap-4">
-              <Clock className="mt-1 h-4 w-4 shrink-0 text-[#c6a15b]" />
+              <Clock className="mt-1 h-4 w-4 shrink-0 text-brass" />
               <div>
                 <dt className="font-inter text-[9px] uppercase tracking-[0.28em] text-white/45">Hours</dt>
                 <dd className="mt-2 font-inter text-sm text-white/80">
@@ -109,13 +109,13 @@ export function Firm() {
               </div>
             </div>
             <div className="flex gap-4">
-              <Phone className="mt-1 h-4 w-4 shrink-0 text-[#c6a15b]" />
+              <Phone className="mt-1 h-4 w-4 shrink-0 text-brass" />
               <div>
                 <dt className="font-inter text-[9px] uppercase tracking-[0.28em] text-white/45">Telephone</dt>
                 <dd className="mt-2">
                   <a
                     href={FIRM.phoneHref}
-                    className="font-arsenica text-2xl text-white transition-colors duration-300 hover:text-[#c6a15b] sm:text-3xl"
+                    className="font-arsenica text-2xl text-white transition-colors duration-300 hover:text-brass sm:text-3xl"
                   >
                     {FIRM.phone}
                   </a>

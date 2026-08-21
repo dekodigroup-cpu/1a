@@ -8,16 +8,16 @@ export function Showcase() {
   return (
     <section
       ref={ref}
-      className="grain relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden bg-[#120705]"
+      className="grain relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden bg-plate"
     >
       <Photo
         photo={PHOTOS.conference}
         plain
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-[#0b0705]/62" />
-      <div className="absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_50%,rgba(11,7,5,0)_0%,rgba(11,7,5,0.72)_100%)]" />
-      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#410c01] to-transparent" />
+      <div className="absolute inset-0 bg-ink/62" />
+      <div className="absolute inset-0 bg-[radial-gradient(90%_70%_at_50%_50%,rgba(5,9,16,0)_0%,rgba(5,9,16,0.72)_100%)]" />
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-navy to-transparent" />
 
       <div className="relative z-10 mx-auto max-w-3xl px-5 py-32 text-center">
         <h2 className="reveal font-arsenica text-4xl tracking-wide text-white drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)] sm:text-5xl lg:text-7xl">
@@ -43,7 +43,7 @@ export function Showcase() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 h-48 w-full bg-gradient-to-b from-transparent to-[#410c01]" />
+      <div className="absolute bottom-0 left-0 h-48 w-full bg-gradient-to-b from-transparent to-navy" />
     </section>
   )
 }

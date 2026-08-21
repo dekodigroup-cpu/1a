@@ -17,7 +17,7 @@ function PlanCard({ plan, index }: { plan: Plan; index: number }) {
       style={{ animationDelay: `${0.12 + index * 0.14}s` }}
     >
       <div
-        className="preserve-3d relative flex h-full flex-col overflow-hidden rounded-[2px] border border-white/10 bg-[#150806]/80 p-7 transition-[transform,border-color,box-shadow] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:border-[#c6a15b]/45 group-hover:shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)] sm:p-9"
+        className="preserve-3d relative flex h-full flex-col overflow-hidden rounded-[2px] border border-white/10 bg-slate/80 p-7 transition-[transform,border-color,box-shadow] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:border-brass/45 group-hover:shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)] sm:p-9"
         style={{ transform }}
       >
         {/* pointer glare, sits above the plate in Z */}
@@ -38,7 +38,7 @@ function PlanCard({ plan, index }: { plan: Plan; index: number }) {
         </span>
 
         <div className="relative" style={{ transform: 'translateZ(30px)' }}>
-          <p className="font-inter text-[9px] uppercase tracking-[0.3em] text-[#c6a15b]">{plan.forWhom}</p>
+          <p className="font-inter text-[9px] uppercase tracking-[0.3em] text-brass">{plan.forWhom}</p>
           <h3 className="mt-4 font-arsenica text-3xl tracking-wide text-white sm:text-4xl">{plan.name}</h3>
           <div className="mt-5 h-px w-full bg-white/12" />
           <p className="mt-5 font-inter text-[13px] leading-relaxed text-white/62 sm:text-sm">{plan.summary}</p>
@@ -47,7 +47,7 @@ function PlanCard({ plan, index }: { plan: Plan; index: number }) {
         <ul className="relative mt-7 space-y-2.5" style={{ transform: 'translateZ(20px)' }}>
           {plan.includes.map((item) => (
             <li key={item} className="flex items-start gap-3">
-              <span className="mt-[7px] h-1 w-1 shrink-0 rotate-45 bg-[#c6a15b]" aria-hidden="true" />
+              <span className="mt-[7px] h-1 w-1 shrink-0 rotate-45 bg-brass" aria-hidden="true" />
               <span className="font-inter text-[12px] leading-relaxed text-white/78 sm:text-[13px]">{item}</span>
             </li>
           ))}
@@ -57,7 +57,7 @@ function PlanCard({ plan, index }: { plan: Plan; index: number }) {
           <p className="font-arsenica text-base leading-snug text-white/90 sm:text-lg">{plan.outcome}</p>
           <a
             href="#book"
-            className="mt-6 inline-flex items-center gap-2 font-inter text-[10px] uppercase tracking-[0.25em] text-white/85 transition-colors duration-300 hover:text-[#c6a15b]"
+            className="mt-6 inline-flex items-center gap-2 font-inter text-[10px] uppercase tracking-[0.25em] text-white/85 transition-colors duration-300 hover:text-brass"
           >
             Choose the {plan.name}
             <ArrowUpRight className="h-3.5 w-3.5" />
@@ -75,7 +75,7 @@ export function Plans() {
     <section
       id="plans"
       ref={ref}
-      className="grain relative overflow-hidden bg-gradient-to-b from-[#0b0705] via-[#1d0703] to-[#410c01] px-5 py-24 sm:px-10 sm:py-32 lg:px-20 lg:py-40"
+      className="grain relative overflow-hidden bg-gradient-to-b from-ink via-navy-mid to-navy px-5 py-24 sm:px-10 sm:py-32 lg:px-20 lg:py-40"
     >
       <div className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
