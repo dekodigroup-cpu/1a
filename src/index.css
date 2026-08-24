@@ -1,0 +1,254 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ *
+ * Typography
+ * ------------------------------------------------------------------ */
+:root {
+  --font-serif: 'Arsenica Trial Light', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  /* Ross Law palette — deep navy, bone, brass. Mirrors tailwind.config.js. */
+  --ink: #050910;
+  --navy: #0b2545;
+  --navy-deep: #061529;
+  --bone: #eaf0f7;
+  --brass: #c6a15b;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--bone);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.font-arsenica {
+  font-family: var(--font-serif);
+}
+.font-inter {
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--brass);
+  color: var(--ink);
+}
+
+/* Focus ring that survives the dark art direction */
+:where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ------------------------------------------------------------------ *
+ * Liquid glass
+ * ------------------------------------------------------------------ */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.01);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.15) 20%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.15) 80%,
+    rgba(255, 255, 255, 0.45) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Brass-tinted variant used on the conversion CTAs */
+.liquid-glass-brass::before {
+  background: linear-gradient(
+    180deg,
+    rgba(198, 161, 91, 0.85) 0%,
+    rgba(198, 161, 91, 0.3) 22%,
+    rgba(198, 161, 91, 0) 42%,
+    rgba(198, 161, 91, 0) 58%,
+    rgba(198, 161, 91, 0.3) 78%,
+    rgba(198, 161, 91, 0.85) 100%
+  );
+}
+
+/* ------------------------------------------------------------------ *
+ * Hero + scroll animations
+ * ------------------------------------------------------------------ */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-fade-up {
+  opacity: 0;
+  animation: hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes reveal-scale {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.reveal {
+  opacity: 0;
+}
+.reveal.revealed {
+  animation: reveal-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.reveal-scale {
+  opacity: 0;
+}
+.reveal-scale.revealed {
+  animation: reveal-scale 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ------------------------------------------------------------------ *
+ * Real 3D — CSS perspective layers used by the plan cards & seals
+ * ------------------------------------------------------------------ */
+.scene-3d {
+  perspective: 1200px;
+  perspective-origin: 50% 40%;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Engraved / letterpress text used for the section numerals */
+.engraved {
+  color: transparent;
+  background: linear-gradient(180deg, rgba(234, 240, 247, 0.16), rgba(234, 240, 247, 0.02));
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.06), 0 -1px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Fine hairline rules used across the editorial layout */
+.rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(234, 240, 247, 0) 0%,
+    rgba(234, 240, 247, 0.28) 18%,
+    rgba(234, 240, 247, 0.28) 82%,
+    rgba(234, 240, 247, 0) 100%
+  );
+}
+
+/* Marquee */
+@keyframes marquee-slide {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+.marquee-track {
+  animation: marquee-slide 42s linear infinite;
+  will-change: transform;
+}
+
+/* Slow brass shimmer on the hero rule */
+@keyframes brass-sweep {
+  0% {
+    background-position: -220% 0;
+  }
+  100% {
+    background-position: 220% 0;
+  }
+}
+.brass-sweep {
+  background-image: linear-gradient(
+    90deg,
+    rgba(198, 161, 91, 0) 0%,
+    rgba(198, 161, 91, 0.9) 50%,
+    rgba(198, 161, 91, 0) 100%
+  );
+  background-size: 220% 100%;
+  animation: brass-sweep 6s ease-in-out infinite;
+}
+
+/* Film grain overlay — keeps the flat dark fields from banding */
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ------------------------------------------------------------------ *
+ * Reduced motion
+ * ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .hero-fade-up,
+  .reveal.revealed,
+  .reveal-scale.revealed {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .hero-fade-up,
+  .reveal,
+  .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .marquee-track,
+  .brass-sweep {
+    animation: none !important;
+  }
+}
