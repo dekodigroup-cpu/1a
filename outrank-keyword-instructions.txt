@@ -1,0 +1,26 @@
+AUDIENCE
+Target busy owners and leaders, not marketers. Focus on small and mid-sized business owners, local service businesses (home services, pest control, storage, schools, clinics, contractors, retail), nonprofits and community organizations, and leaders of growing organizations preparing for funding or a bigger initiative. Pick keywords these people would actually type when they have a problem, in their own plain words.
+
+SEARCH INTENT
+Favor problem-aware and solution-aware searches: questions, "how to," "why is my," "what does it cost," "is it worth it," "do I need," and comparisons between doing it yourself, hiring one-off vendors, and working with one partner. Favor long-tail keywords (3 words or more) with clear intent and realistic difficulty over broad, high-volume terms that big publishers own.
+
+TOPIC PRIORITIES (in order)
+1. Being found: Google Business Profile, Google Maps, local search, showing up in AI search like ChatGPT, getting found by nearby customers.
+2. Being trusted: getting more reviews, responding to reviews, improving star ratings, what makes a website trustworthy, website refresh decisions.
+3. Being chosen: responding to leads faster, missed calls, follow-up, turning inquiries into customers.
+4. Growing predictably: knowing where customers come from, tracking what marketing works, marketing budgets, measuring results without being a marketer.
+5. The Patchwork Tax: too many marketing tools, paying for tools you don't use, managing multiple marketing vendors, whether to hire an agency or a freelancer or one partner, building a simple marketing plan, where to start with marketing.
+6. Start and Fund: planning a new business or initiative, getting ready for funding or grants, budgeting for marketing and technology, brand launches and what they cost, nonprofit visibility and supporter growth.
+7. AI for owners: practical uses of AI in a small business, explained as what changes for customers, not how the technology works.
+
+AVOID
+- Keywords that include competitor, agency, or software brand names.
+- Highly technical or marketer-only terms (for example: schema markup, CRM integration, attribution modeling, API, programmatic SEO). If a technical topic matters, target the owner's plain-language version instead.
+- Job, career, salary, course, and certification searches.
+- Searches looking for free tools, templates, or downloads only.
+- Broad one- or two-word terms (for example: marketing, SEO, branding).
+- Topics unrelated to running, funding, or marketing a business or organization.
+- Trend or news keywords that will be outdated in a few months.
+
+BALANCE
+Each month, keep a mix: about half on being found and being trusted, about a quarter on being chosen and growing predictably, and the rest on the Patchwork Tax, Start and Fund, and nonprofit topics. Do not create several keywords that target the same question in slightly different words.
