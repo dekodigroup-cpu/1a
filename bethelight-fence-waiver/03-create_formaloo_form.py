@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the Be The Light "Property Access & Fence Work Waiver" form in Formaloo via its API.
+"""Build the Be The Light "Fence Program Waiver" form in Formaloo via its API.
 
 Usage:
     export FORMALOO_API_KEY=...      # Formaloo > Settings > API & Integrations > API key
@@ -52,44 +52,42 @@ def fields():
         f("short_text", "Full legal name", True),
         f("phone", "Phone", True),
         f("email", "Email", True),
-        f("long_text", "Property address (street, city, state, ZIP)", True),
+        f("long_text", "Property address (street, city, ZIP)", True),
         choice("Your relationship to the property",
-               ["Owner", "Tenant/renter", "Property manager", "Authorized agent / family member"]),
+               ["Owner", "Renter/tenant", "Family member living there", "Other occupant"]),
         f("short_text", "Owner or landlord name and phone (if you are not the owner)"),
-        f("yes_no", "If not the owner: I confirm I have the owner's/landlord's permission to grant access"),
-        page("The animal and the property"),
-        f("long_text", "Describe the animal (species, color, size, name if known)", True),
-        f("long_text", "Where is the animal usually seen on the property?"),
-        f("yes_no", "Do you have pets or livestock on the property?", True),
-        f("long_text", "If yes: describe your animals and how they'll be secured during the work"),
-        multi("Known hazards (check all)",
-              ["Buried utilities/gas", "Irrigation lines", "Invisible/electric fence", "Pool or pond",
-               "Well/septic", "Aggressive animal", "Chemicals/pesticides", "None known"]),
-        f("long_text", "Gate codes, lockbox, or access instructions"),
-        f("long_text", "Anything else we should know?"),
-        page("Permission and authorized work"),
+        f("yes_no", "If not the owner: I have the owner's/landlord's permission to have a fence built"),
+        page("Your dog and your yard"),
+        f("number", "How many dogs will the fence be for?", True),
+        f("long_text", "Describe each dog (name, breed/size, age, spayed/neutered?)", True),
+        f("yes_no", "Is the dog currently chained or tethered?", True),
+        multi("Private underground lines or hazards you know of (check all)",
+              ["Sprinkler/irrigation", "Septic tank or field lines", "Private water line",
+               "Wiring to a shed, pump, or lights", "Invisible/electric dog fence", "Propane line",
+               "None that I know of"], True),
+        f("long_text", "If any: where are they?"),
+        choice("Are you in an HOA, or do you know of any permit or deed rule about fences?",
+               ["No", "Yes", "Not sure"]),
+        f("short_text", "Best days and times for us to work"),
+        f("long_text", "Anything else we should know? (gate codes, other animals, where you'd like the fence)"),
+        page("Permission and the work"),
         text([1, 2, 3]),
-        multi("Work I authorize (check all that apply)",
-              ["Climb, open, lift, or remove fence panels and gates",
-               "Cut, bend, or detach fence wire/chain-link/mesh if needed",
-               "Install temporary fencing, catch-pens, or stakes",
-               "Block gaps under fences, decks, and structures",
-               "Dig or remove debris", "Trim or move vegetation",
-               "Set and leave humane traps and feeding stations",
-               "Place trail/security cameras", "Park and drive on the property"], True),
-        text([4]),
-        choice("Access allowed at any hour, day or night?",
-               ["Yes, any time", "Daytime only (7am-8pm)", "Call first every time"]),
-        f("date", "Authorization end date (leave blank = until the animal is secured)"),
-        page("Release of liability"),
-        text([5, 6, 7]),
-        f("short_text", "Initials: I accept the risks and release Be The Light from all claims for property damage, present and future", True),
+        text([4, 5]),
+        f("yes_no", "I authorize Be The Light to do the work described above, including digging, "
+                    "clearing the fence line, and removing chains and tethers", True),
+        page("Release of liability and your commitments"),
+        text([6, 7]),
+        f("short_text", "Initials: I accept the risks and release Be The Light from all claims for damage "
+                        "to my property or pet, now or in the future", True),
+        text([8]),
+        f("short_text", "Initials: I agree to my commitments, including no chaining and maintaining the fence", True),
+        text([9, 10, 11, 12]),
         f("short_text", "Initials: I agree not to sue and to indemnify Be The Light", True),
-        text([8, 9, 10, 11, 12]),
-        f("yes_no", "I consent to cameras and photos of the animal as described", True),
+        f("yes_no", "I consent to photos and video of my dog and the fence project", True),
         page("Sign"),
         text([13]),
-        f("yes_no", "I have read and agree to this entire Property Access, Fence Work Authorization & Release of Liability", True),
+        f("yes_no", "I have read and agree to the entire Fence Program Property Access, Work Authorization "
+                    "& Release of Liability", True),
         f("yes_no", "I am 18 years of age or older", True),
         f("signature", "Signature", True),
         f("short_text", "Printed name", True),
@@ -113,12 +111,12 @@ def call(method, path, body=None, headers=None, form=False):
 
 def main():
     apply = "--apply" in sys.argv
-    form = {"title": "Property Access & Fence Work Waiver",
-            "description": ("Be The Light Rescue needs your permission to enter your property and work on "
-                            "fences or gates so we can safely secure a lost or stray pet. Please read each "
-                            "section and sign at the end. It takes about 5 minutes."),
-            "success_message": ("Thank you! Your permission form has been received. A Be The Light "
-                                "volunteer will contact you before we arrive.")}
+    form = {"title": "Fence Program Waiver",
+            "description": ("Be The Light Rescue builds fences at no cost so dogs can live off the chain. "
+                            "Before we start, we need your permission to work on your property and your "
+                            "agreement to the terms below. It takes about 5 minutes."),
+            "success_message": ("Thank you! We've received your signed waiver. Be The Light will "
+                                "contact you to schedule your fence.")}
     flds = fields()
     if not apply:
         print(json.dumps({"form": form, "fields": flds}, indent=2))
